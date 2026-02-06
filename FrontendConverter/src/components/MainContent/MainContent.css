@@ -1,0 +1,12 @@
+.mainContent {
+  position: absolute;   /* posição relativa à tela */
+  top: 85px;            /* começa logo abaixo do header */
+  left: 0;              /* canto esquerdo */
+  right: 300px;         /* espaço para a sidebar */
+  bottom: 0;            /* ocupa até a parte inferior da página */
+
+  padding: 20px;        /* espaço interno */
+  background: #adadad;
+
+  overflow-y: auto;    
+}

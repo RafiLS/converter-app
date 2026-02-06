@@ -1,0 +1,11 @@
+.sidebar {
+  position: fixed;   /* fixa a sidebar na tela */
+  top: 85px;        /* começa abaixo do header */
+  right: 0;          /* encostada na direita */
+  width: 300px;      /* largura da sidebar */
+  height: calc(100vh - 100px); /* ocupa toda a altura restante da página */
+  
+  padding: 10px;
+  background: #ff3636;
+  overflow-y: auto;  /* permite scroll se o conteúdo for maior que a altura */
+}
