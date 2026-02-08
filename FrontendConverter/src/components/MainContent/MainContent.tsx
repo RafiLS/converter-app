@@ -1,43 +1,35 @@
 import React from 'react';
 import './MainContent.css';
+import Inicio from './Inicio';
+import LengthUnits from './LengthUnits';
+import Volume from './Volume';
+import Massa from './Massa';
+import Temperatura from './Temperatura';
+import Tempo from './Tempo';
+import Velocidade from './Velocidade';
+import Energia from './Energia';
+import Pressao from './Pressao';
 
-const MainContent: React.FC = () => {
+interface MainContentProps {
+  category: string | null;
+  onSelect: (category: string) => void;
+}
+
+const MainContent: React.FC<MainContentProps> = ({ category, onSelect }) => {
   return (
     <main className="mainContent">
-      <h1>Conteúdo Principal</h1>
-      <p>Aqui vai o conteúdo do site...</p>
-            <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-      <p>Aqui vai o conteúdo do site...</p>
-    
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
-
-      <p>Aqui vai o conteúdo do site...</p>
+      {category === 'inicio' && <Inicio onSelect={onSelect} />}
+      {category === 'comprimento' && <LengthUnits />}
+      {category === 'volume' && <Volume />}
+      {category === 'massa' && <Massa />}
+      {category === 'temperatura' && <Temperatura />}
+      {category === 'tempo' && <Tempo />}
+      {category === 'velocidade' && <Velocidade />}
+      {category === 'energia' && <Energia />}
+      {category === 'pressao' && <Pressao />}
 
 
+      {/* Futuras categorias: volume, massa, temperatura....... */}
     </main>
   );
 };

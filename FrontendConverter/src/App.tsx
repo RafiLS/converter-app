@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import Sidebar from './components/Sidebar/Sidebar';
-import MainContent from './components/MainContent/MainContent';
+import { useState } from "react";
+import Header from "./components/Header/Header";
+import MainContent from "./components/MainContent/MainContent";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
+  const [category, setCategory] = useState<string | null>("inicio");
+
   return (
     <div className="App">
-      <Header />
-      <div className="main-wrapper">
-        <MainContent />
-        <Sidebar />
-      </div>
+      <Header category={category} onSelect={setCategory} />
+      <MainContent category={category} onSelect={setCategory} />
+      <Sidebar />
     </div>
   );
 }
