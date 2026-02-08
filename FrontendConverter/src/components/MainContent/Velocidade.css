@@ -87,7 +87,10 @@ h1 {
   margin-bottom: 8px;       
   color: #111111;          
   background-color: #ffffff; 
-  -moz-appearance: textfield;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .valueInput::-webkit-inner-spin-button,
@@ -136,4 +139,15 @@ h1 {
   width: 100%;              
   margin-left: 0px;        
   margin-right: auto;       
+}
+.explicacao {
+    font-size: 1.1rem;
+    color: #333333;
+    line-height: 1.6;
+    margin: 100px auto 30px auto;
+    padding: 15px;
+    text-align: justify;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+    border-top: 1px solid #cccccc;
 }
