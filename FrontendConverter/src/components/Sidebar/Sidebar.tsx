@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import "./Sidebar.css";
 
@@ -9,25 +9,31 @@ declare global {
 }
 
 const Sidebar: React.FC = () => {
-  const hasConsent: boolean = Cookies.get("user_consent") === "true";
+  const [rerender, setRerender] = useState(0);
+  const hasConsent = Cookies.get("user_consent") === "true";
 
- useEffect(() => {
-  if (!hasConsent) return;
+  useEffect(() => {
+    const update = () => setRerender(Math.random());
+    window.addEventListener("consent-updated", update);
+    return () => window.removeEventListener("consent-updated", update);
+  }, []);
 
-  const interval = setInterval(() => {
-    if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+  useEffect(() => {
+    if (!hasConsent) return;
+
+    window.adsbygoogle = window.adsbygoogle || [];
+
+    const interval = setInterval(() => {
       try {
         window.adsbygoogle.push({});
         clearInterval(interval);
-      } catch (e) {
+      } catch {
         console.warn("Ads ainda não prontos");
       }
-    }
-  }, 500);
+    }, 500);
 
-  return () => clearInterval(interval);
-}, [hasConsent]);
-
+    return () => clearInterval(interval);
+  }, [hasConsent, rerender]);
 
   if (!hasConsent) {
     return (
@@ -40,11 +46,12 @@ const Sidebar: React.FC = () => {
   return (
     <aside className="sidebar">
       <span className="ad-label">Publicidade</span>
+
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-XXXXXXXXXXXX" // substitui pelo teu Publisher ID
-        data-ad-slot="1234567890"            // substitui pelo Ad Slot ID
+        data-ad-client="ca-pub-2074067560911145"
+        data-ad-slot="1491947858"
         data-ad-format="auto"
         data-full-width-responsive="true"
       />

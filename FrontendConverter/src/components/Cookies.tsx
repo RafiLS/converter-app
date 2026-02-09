@@ -21,6 +21,8 @@ const CookiesBanner: React.FC = () => {
       ad_personalization: "granted",
     });
 
+    window.dispatchEvent(new Event("consent-updated"));
+
     setVisible(false);
   };
 
@@ -34,6 +36,8 @@ const CookiesBanner: React.FC = () => {
       ad_personalization: "denied",
     });
 
+    window.dispatchEvent(new Event("consent-updated"));
+
     setVisible(false);
   };
 
@@ -41,10 +45,8 @@ const CookiesBanner: React.FC = () => {
 
   return (
     <>
-      {/* Overlay que bloqueia o site */}
       <div className="cookies-overlay"></div>
 
-      {/* Banner */}
       <div className="cookies-banner">
         <div className="cookies-box">
           <p>
