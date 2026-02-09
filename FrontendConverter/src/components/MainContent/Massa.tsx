@@ -2,26 +2,26 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Massa.css';
 
 const massUnits = [
-    'Gramas (g)',           // 1 g
-    'Miligramas (mg)',      // 1e-3 g
-    'Centigramas (cg)',     // 1e-2 g
-    'Decigramas (dg)',      // 1e-1 g
-    'Quilogramas (kg)',     // 1e3 g
-    'Toneladas (t)',        // 1e6 g
-    'Onças (oz)',           // 28.3495 g
-    'Libras (lb)',          // 453.592 g
-    'Stone (st)'            // 6350.29 g
+    'Gram (g)',           // 1 g
+    'Milligram (mg)',     // 1e-3 g
+    'Centigram (cg)',     // 1e-2 g
+    'Decigram (dg)',      // 1e-1 g
+    'Kilogram (kg)',      // 1e3 g
+    'Ton (t)',            // 1e6 g
+    'Ounce (oz)',         // 28.3495 g
+    'Pound (lb)',         // 453.592 g
+    'Stone (st)'          // 6350.29 g
 ];
 
 const conversionFactors: { [key: string]: number } = {
-    'Gramas (g)': 1,
-    'Miligramas (mg)': 0.001,
-    'Centigramas (cg)': 0.01,
-    'Decigramas (dg)': 0.1,
-    'Quilogramas (kg)': 1000,
-    'Toneladas (t)': 1e6,
-    'Onças (oz)': 28.3495,
-    'Libras (lb)': 453.592,
+    'Gram (g)': 1,
+    'Milligram (mg)': 0.001,
+    'Centigram (cg)': 0.01,
+    'Decigram (dg)': 0.1,
+    'Kilogram (kg)': 1000,
+    'Ton (t)': 1e6,
+    'Ounce (oz)': 28.3495,
+    'Pound (lb)': 453.592,
     'Stone (st)': 6350.29
 };
 
@@ -76,13 +76,13 @@ const Massa: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Massa</h1>
+            <h1>Units of Mass</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade De"
+                        placeholder="Write / Select From Unit"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -108,7 +108,7 @@ const Massa: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade Para"
+                        placeholder="Write / Select To Unit"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -136,7 +136,7 @@ const Massa: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -148,12 +148,12 @@ const Massa: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Massa é a quantidade de matéria presente em um corpo, sendo uma grandeza física fundamental.
-                Diferente do peso, a massa não depende da gravidade e é medida em unidades como quilogramas (kg),
-                gramas (g) e toneladas (t). Ela é essencial para calcular a inércia de objetos e está presente em
+                Mass is the amount of matter in a body, being a fundamental physical quantity.
+                Unlike weight, mass does not depend on gravity and is measured in units such as kilograms (kg),
+                grams (g) and tons (t). It is essential for calculating the inertia of objects and is present in
                 diversas aplicações da ciência, engenharia e do cotidiano.
             </p>
 

@@ -73,13 +73,13 @@ const Temperatura: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Temperatura</h1>
+            <h1>Temperature Units</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escolha unidade De"
+                        placeholder="Choose unit From"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -105,7 +105,7 @@ const Temperatura: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escolha unidade Para"
+                        placeholder="Choose unit To"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -133,7 +133,7 @@ const Temperatura: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -145,14 +145,14 @@ const Temperatura: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Temperatura é uma medida que indica o grau de calor ou frio de um corpo ou ambiente.
-                É uma grandeza física fundamental utilizada para descrever a energia térmica de sistemas.
-                As unidades de temperatura mais comuns incluem Celsius (°C), Kelvin (K) e Fahrenheit (°F).
-                A temperatura influencia diversos fenômenos físicos, químicos e biológicos, sendo essencial
-                em atividades do dia a dia, na indústria, na ciência e na meteorologia.
+                Temperature is a measure that indicates the degree of heat or cold of a body or environment.
+                It is a fundamental physical quantity used to describe the thermal energy of systems.
+                The most common temperature units include Celsius (°C), Kelvin (K) and Fahrenheit (°F).
+                Temperature influences various physical, chemical and biological phenomena, being essential
+                in daily activities, in industry, in science and in meteorology.
             </p>
 
         </>

@@ -2,22 +2,23 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Energia.css';
 
 const energyUnits = [
-    'Joule (J)',             // 1 J
-    'Quilojoule (kJ)',       // 1e3 J
-    'Caloria (cal)',         // 4.184 J
-    'Quilocaloria (kcal)',   // 4184 J
-    'Watt hora (Wh)',        // 3600 J
-    'Quilowatt hora (kWh)',  // 3.6e6 J
+    'Joule (J)',              // 1 J
+    'Kilojoule (kJ)',         // 1e3 J
+    'Calorie (cal)',          // 4.184 J
+    'Kilocalorie (kcal)',     // 4184 J
+    'Watt hour (Wh)',         // 3600 J
+    'Kilowatt hour (kWh)',    // 3.6e6 J
 ];
 
 const conversionFactors: { [key: string]: number } = {
     'Joule (J)': 1,
-    'Quilojoule (kJ)': 1e3,
-    'Caloria (cal)': 4.184,
-    'Quilocaloria (kcal)': 4184,
-    'Watt hora (Wh)': 3600,
-    'Quilowatt hora (kWh)': 3.6e6,
+    'Kilojoule (kJ)': 1e3,
+    'Calorie (cal)': 4.184,
+    'Kilocalorie (kcal)': 4184,
+    'Watt hour (Wh)': 3600,
+    'Kilowatt hour (kWh)': 3.6e6,
 };
+
 
 
 const Energia: React.FC = () => {
@@ -67,13 +68,13 @@ const Energia: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Energia</h1>
+            <h1>Energy Units</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade De"
+                        placeholder="Write / Select From Unit"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -99,7 +100,7 @@ const Energia: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade Para"
+                        placeholder="Write / Select To Unit"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -127,7 +128,7 @@ const Energia: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -139,14 +140,14 @@ const Energia: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset selection</button>
             )}
             <p className="explicacao">
-                Energia é a capacidade de um sistema de realizar trabalho ou produzir mudanças em seu entorno.
-                É uma grandeza física fundamental que pode se manifestar de várias formas, como energia cinética,
-                potencial, térmica, elétrica e química. As unidades mais comuns de energia incluem joules (J),
-                calorias (cal) e quilowatt-hora (kWh). A energia é essencial em ciência, engenharia, tecnologia e
-                na vida cotidiana, influenciando desde o funcionamento de aparelhos até processos industriais.
+                Energy is the capacity of a system to perform work or produce changes in its environment.
+                It is a fundamental physical quantity that can manifest in various forms, such as kinetic,
+                potential, thermal, electrical and chemical energy. The most common energy units include joules (J),
+                calories (cal) and kilowatt-hours (kWh). Energy is essential in science, engineering, technology and
+                everyday life, influencing everything from the operation of appliances to industrial processes.
             </p>
         </>
     );

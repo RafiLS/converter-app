@@ -2,19 +2,19 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Velocidade.css';
 
 const speedUnits = [
-    'Metros por segundo (m/s)',      // 1 m/s
-    'Quilômetros por hora (km/h)',   // 0.277778 m/s
-    'Milhas por hora (mph)',         // 0.44704 m/s
-    'Nós (kn)',                      // 0.514444 m/s
-    'Pés por segundo (ft/s)'         // 0.3048 m/s
+    'Meters per second (m/s)',     // 1 m/s
+    'Kilometers per hour (km/h)',  // 0.277778 m/s
+    'Miles per hour (mph)',        // 0.44704 m/s
+    'Knots (kn)',                  // 0.514444 m/s
+    'Feet per second (ft/s)'       // 0.3048 m/s
 ];
 
 const conversionFactors: { [key: string]: number } = {
-    'Metros por segundo (m/s)': 1,
-    'Quilômetros por hora (km/h)': 0.277778,
-    'Milhas por hora (mph)': 0.44704,
-    'Nós (kn)': 0.514444,
-    'Pés por segundo (ft/s)': 0.3048
+    'Meters per second (m/s)': 1,
+    'Kilometers per hour (km/h)': 0.277778,
+    'Miles per hour (mph)': 0.44704,
+    'Knots (kn)': 0.514444,
+    'Feet per second (ft/s)': 0.3048
 };
 
 const Velocidade: React.FC = () => {
@@ -64,13 +64,13 @@ const Velocidade: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Velocidade</h1>
+            <h1>Speed Units</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade De"
+                        placeholder="Write / Select unit From"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -96,7 +96,7 @@ const Velocidade: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade Para"
+                        placeholder="Write / Select unit To"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -124,7 +124,7 @@ const Velocidade: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -136,13 +136,13 @@ const Velocidade: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Velocidade é a grandeza física que indica a rapidez com que um objeto se desloca em relação a um ponto de referência.
-                Ela relaciona a distância percorrida com o tempo gasto, sendo fundamental para descrever movimentos.
-                As unidades mais comuns de velocidade incluem metros por segundo (m/s), quilômetros por hora (km/h) e milhas por hora (mph).
-                A velocidade é amplamente utilizada na física, engenharia, transporte, esportes e na análise de trajetórias.
+                Speed is the physical quantity that indicates the rate at which an object moves relative to a reference point.
+                It relates the distance traveled to the time taken, being fundamental for describing motion.
+                The most common speed units include meters per second (m/s), kilometers per hour (km/h) and miles per hour (mph).
+                Speed is widely used in physics, engineering, transportation, sports and trajectory analysis.
             </p>
 
         </>

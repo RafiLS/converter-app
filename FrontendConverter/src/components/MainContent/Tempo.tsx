@@ -2,25 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Tempo.css';
 
 const timeUnits = [
-    'Segundos (s)',      // 1 s
-    'Milissegundos (ms)',// 1e-3 s
-    'Minutos (min)',     // 60 s
-    'Horas (h)',         // 3600 s
-    'Dias (d)',          // 86400 s
-    'Semanas (wk)',      // 604800 s
-    'Meses (mo)',        // 2.628e6 s (média)
-    'Anos (yr)'          // 3.154e7 s (365 dias)
+    'Seconds (s)',        // 1 s
+    'Milliseconds (ms)',  // 1e-3 s
+    'Minutes (min)',      // 60 s
+    'Hours (h)',          // 3600 s
+    'Days (d)',           // 86400 s
+    'Weeks (wk)',         // 604800 s
+    'Months (mo)',        // 2.628e6 s (average)
+    'Years (yr)'          // 3.154e7 s (365 days)
 ];
 
 const conversionFactors: { [key: string]: number } = {
-    'Segundos (s)': 1,
-    'Milissegundos (ms)': 0.001,
-    'Minutos (min)': 60,
-    'Horas (h)': 3600,
-    'Dias (d)': 86400,
-    'Semanas (wk)': 604800,
-    'Meses (mo)': 2.628e6,
-    'Anos (yr)': 3.154e7
+    'Seconds (s)': 1,
+    'Milliseconds (ms)': 0.001,
+    'Minutes (min)': 60,
+    'Hours (h)': 3600,
+    'Days (d)': 86400,
+    'Weeks (wk)': 604800,
+    'Months (mo)': 2.628e6,
+    'Years (yr)': 3.154e7
 };
 
 const Tempo: React.FC = () => {
@@ -70,13 +70,13 @@ const Tempo: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Tempo</h1>
+            <h1>Time Units</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade De"
+                        placeholder="Write / Select unit From"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -102,7 +102,7 @@ const Tempo: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade Para"
+                        placeholder="Write / Select unit To"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -130,7 +130,7 @@ const Tempo: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -142,14 +142,14 @@ const Tempo: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Tempo é a grandeza física que permite medir a duração e a sequência de acontecimentos.
-                É uma das medições mais fundamentais na vida cotidiana e na ciência, sendo usado para
-                organizar atividades, estudar fenômenos naturais e sincronizar processos. As unidades mais
-                comuns de tempo incluem segundos (s), minutos (min), horas (h), dias e anos. A medição precisa
-                do tempo é essencial em áreas como astronomia, física, transporte, tecnologia e comunicação.
+                Time is the physical quantity that allows measuring the duration and sequence of events.
+                It is one of the most fundamental measurements in daily life and science, used to
+                organize activities, study natural phenomena and synchronize processes. The most
+                common time units include seconds (s), minutes (min), hours (h), days and years. Precise
+                time measurement is essential in areas such as astronomy, physics, transportation, technology and communication.
             </p>
 
         </>

@@ -2,22 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Pressao.css';
 
 const unidadesPressao = [
-    'Pascal (Pa)',             // 1 Pa
-    'Quilopascal (kPa)',       // 1e3 Pa
+     'Pascal (Pa)',             // 1 Pa
+    'Kilopascal (kPa)',        // 1e3 Pa
     'Megapascal (MPa)',        // 1e6 Pa
     'Bar (bar)',               // 1e5 Pa
-    'Milímetro de Mercúrio (mmHg)', // 133.322 Pa
-    'Atmosfera (atm)',         // 101325 Pa
+    'Millimeter of Mercury (mmHg)', // 133.322 Pa
+    'Atmosphere (atm)',        // 101325 Pa
     'Psi (psi)'                // 6894.76 Pa
 ];
 
 const fatoresConversao: { [key: string]: number } = {
     'Pascal (Pa)': 1,
-    'Quilopascal (kPa)': 1e3,
+    'Kilopascal (kPa)': 1e3,
     'Megapascal (MPa)': 1e6,
     'Bar (bar)': 1e5,
-    'Milímetro de Mercúrio (mmHg)': 133.322,
-    'Atmosfera (atm)': 101325,
+    'Millimeter of Mercury (mmHg)': 133.322,
+    'Atmosphere (atm)': 101325,
     'Psi (psi)': 6894.76
 };
 
@@ -68,13 +68,13 @@ const Pressao: React.FC = () => {
 
     return (
         <>
-            <h1>Conversor de Pressão</h1>
+            <h1>Pressure Converter</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={deRef}>
                     <input
                         type="text"
-                        placeholder="Escolha unidade De"
+                        placeholder="Choose From Unit"
                         value={deUnidade || pesquisaDe}
                         onClick={() => setAbertoDeDropdown(true)}
                         onChange={e => { setPesquisaDe(e.target.value); setDeUnidade(null); setAbertoDeDropdown(true); }}
@@ -100,7 +100,7 @@ const Pressao: React.FC = () => {
                 <div className="dropdown" ref={paraRef}>
                     <input
                         type="text"
-                        placeholder="Escolha unidade Para"
+                        placeholder="Choose To Unit"
                         value={paraUnidade || pesquisaPara}
                         onClick={() => setAbertoParaDropdown(true)}
                         onChange={e => { setPesquisaPara(e.target.value); setParaUnidade(null); setAbertoParaDropdown(true); }}
@@ -128,7 +128,7 @@ const Pressao: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${deUnidade}`}
+                        placeholder={`Value in ${deUnidade}`}
                         value={valor}
                         onChange={e => setValor(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -140,14 +140,14 @@ const Pressao: React.FC = () => {
             )}
 
             {(deUnidade || paraUnidade || valor !== '') && (
-                <button className="resetButton" onClick={reiniciar}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={reiniciar}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Pressão é a força exercida por unidade de área sobre uma superfície.
-                É uma grandeza física fundamental na mecânica dos fluidos e em diversas aplicações do dia a dia.
-                As unidades mais comuns de pressão incluem pascal (Pa), bar, atmosfera (atm) e milímetros de mercúrio (mmHg).
-                A pressão é importante em ciência, engenharia, meteorologia, medicina e na indústria,
-                influenciando desde o funcionamento de pneus e sistemas hidráulicos até fenômenos naturais.
+                Pressure is the force exerted per unit area on a surface.
+                It is a fundamental physical quantity in fluid mechanics and in various applications in daily life.
+                The most common pressure units include pascal (Pa), bar, atmosphere (atm) and millimeters of mercury (mmHg).
+                Pressure is important in science, engineering, meteorology, medicine and industry,
+                influencing everything from tire and hydraulic system operation to natural phenomena.
             </p>
         </>
     );

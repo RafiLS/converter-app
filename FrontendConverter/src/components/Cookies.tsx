@@ -50,16 +50,15 @@ const CookiesBanner: React.FC = () => {
       <div className="cookies-banner">
         <div className="cookies-box">
           <p>
-            Este site utiliza cookies para melhorar a experiência e mostrar
-            publicidade personalizada.
+            This site uses cookies to improve the experience and show personalized advertising.
           </p>
 
           <div className="cookies-buttons">
             <button className="accept" onClick={acceptCookies}>
-              Aceitar
+              Accept
             </button>
             <button className="reject" onClick={rejectCookies}>
-              Recusar
+              Reject
             </button>
           </div>
         </div>

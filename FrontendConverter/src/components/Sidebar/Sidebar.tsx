@@ -38,14 +38,14 @@ const Sidebar: React.FC = () => {
   if (!hasConsent) {
     return (
       <aside className="sidebar">
-        <span className="ad-label">Publicidade desativada</span>
+        <span className="ad-label">Advertisement disabled.</span>
       </aside>
     );
   }
 
   return (
     <aside className="sidebar">
-      <span className="ad-label">Publicidade</span>
+      <span className="ad-label">Advertisement</span>
 
       <ins
         className="adsbygoogle"

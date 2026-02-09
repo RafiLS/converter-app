@@ -2,31 +2,31 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Volume.css';
 
 const volumeUnits = [
-    'Litro (L)',           // 1 L
-    'Mililitro (mL)',      // 1e-3 L
-    'Centilitro (cL)',     // 1e-2 L
-    'Decilitro (dL)',      // 1e-1 L
-    'Metro Cúbico (m³)',   // 1000 L
-    'Decâmetro Cúbico (dam³)', // 1000 L
-    'Hectômetro Cúbico (hm³)', // 1e6 L
-    'Galão (US gal)',      // 3.78541 L
-    'Galão (UK gal)',      // 4.54609 L
-    'Onça Líquida (fl oz)',// 0.0295735 L
-    'Barril (bbl)'         // 158.987 L
+    'Liter (L)',               // 1 L
+    'Milliliter (mL)',         // 1e-3 L
+    'Centiliter (cL)',         // 1e-2 L
+    'Deciliter (dL)',          // 1e-1 L
+    'Cubic meter (m³)',        // 1000 L
+    'Cubic decameter (dam³)',  // 1000 L
+    'Cubic hectometer (hm³)',  // 1e6 L
+    'US gallon (US gal)',      // 3.78541 L
+    'UK gallon (UK gal)',      // 4.54609 L
+    'Fluid ounce (fl oz)',     // 0.0295735 L
+    'Barrel (bbl)'             // 158.987 L
 ];
 
 const conversionFactors: { [key: string]: number } = {
-    'Litro (L)': 1,
-    'Mililitro (mL)': 0.001,
-    'Centilitro (cL)': 0.01,
-    'Decilitro (dL)': 0.1,
-    'Metro Cúbico (m³)': 1000,
-    'Decâmetro Cúbico (dam³)': 1000,
-    'Hectômetro Cúbico (hm³)': 1e6,
-    'Galão (US gal)': 3.78541,
-    'Galão (UK gal)': 4.54609,
-    'Onça Líquida (fl oz)': 0.0295735,
-    'Barril (bbl)': 158.987
+    'Liter (L)': 1,
+    'Milliliter (mL)': 0.001,
+    'Centiliter (cL)': 0.01,
+    'Deciliter (dL)': 0.1,
+    'Cubic meter (m³)': 1000,
+    'Cubic decameter (dam³)': 1000,
+    'Cubic hectometer (hm³)': 1e6,
+    'US gallon (US gal)': 3.78541,
+    'UK gallon (UK gal)': 4.54609,
+    'Fluid ounce (fl oz)': 0.0295735,
+    'Barrel (bbl)': 158.987
 };
 
 const Volume: React.FC = () => {
@@ -80,13 +80,13 @@ const Volume: React.FC = () => {
 
     return (
         <>
-            <h1>Unidades de Volume</h1>
+            <h1>Volume Units</h1>
 
             <div className="dropdownRow">
                 <div className="dropdown" ref={fromRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade De"
+                        placeholder="Write / Select unit From"
                         value={fromUnit || fromSearch}
                         onClick={() => setOpenFromDropdown(true)}
                         onChange={e => { setFromSearch(e.target.value); setFromUnit(null); setOpenFromDropdown(true); }}
@@ -112,7 +112,7 @@ const Volume: React.FC = () => {
                 <div className="dropdown" ref={toRef}>
                     <input
                         type="text"
-                        placeholder="Escreva / Selecione unidade Para"
+                        placeholder="Write / Select unit To"
                         value={toUnit || toSearch}
                         onClick={() => setOpenToDropdown(true)}
                         onChange={e => { setToSearch(e.target.value); setToUnit(null); setOpenToDropdown(true); }}
@@ -140,7 +140,7 @@ const Volume: React.FC = () => {
                 <div className="conversionRow">
                     <input
                         type="number"
-                        placeholder={`Valor em ${fromUnit}`}
+                        placeholder={`Value in ${fromUnit}`}
                         value={value}
                         onChange={e => setValue(e.target.value === '' ? '' : Number(e.target.value))}
                         className="valueInput"
@@ -152,14 +152,14 @@ const Volume: React.FC = () => {
             )}
 
             {(fromUnit || toUnit || value !== '') && (
-                <button className="resetButton" onClick={resetSelection}>Reiniciar seleção</button>
+                <button className="resetButton" onClick={resetSelection}>Reset Selection</button>
             )}
             <p className="explicacao">
-                Volume é a medida do espaço ocupado por um objeto ou substância em três dimensões.
-                É uma grandeza física fundamental usada para quantificar líquidos, gases e sólidos.
-                As unidades de volume mais comuns incluem litros (L), mililitros (mL), metros cúbicos (m³) e centímetros cúbicos (cm³).
-                O volume é importante em diversas áreas, como ciência, engenharia, culinária e transporte,
-                ajudando a determinar a capacidade de recipientes e o espaço ocupado por materiais.
+                Volume is the measure of the space occupied by an object or substance in three dimensions.
+                It is a fundamental physical quantity used to quantify liquids, gases and solids.
+                The most common volume units include liters (L), milliliters (mL), cubic meters (m³) and cubic centimeters (cm³).
+                Volume is important in various fields such as science, engineering, cooking and transportation,
+                helping to determine the capacity of containers and the space occupied by materials.
             </p>
         </>
     );
