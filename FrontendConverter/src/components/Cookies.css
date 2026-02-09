@@ -1,0 +1,68 @@
+/* Fundo acinzentado que cobre o site */
+.cookies-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  pointer-events: all;
+}
+
+/* Banner */
+.cookies-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.cookies-box {
+  max-width: 600px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.cookies-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cookies-buttons button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.cookies-buttons .accept {
+  background: #4caf50;
+  color: white;
+}
+
+.cookies-buttons .accept:hover {
+  background: #45a049;
+}
+
+.cookies-buttons .reject {
+  background: #f44336;
+  color: white;
+}
+
+.cookies-buttons .reject:hover {
+  background: #d7382e;
+}

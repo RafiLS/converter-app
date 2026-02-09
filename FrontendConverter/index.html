@@ -5,7 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/balance.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Change everything</title>
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      // Estado inicial: tudo negado até o utilizador aceitar
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    </script>
+
+    <!-- Google AdSense (IMPORTANTE: incluir o client=ca-pub-XXXX) -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+      crossorigin="anonymous">
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
