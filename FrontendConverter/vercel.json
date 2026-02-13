@@ -1,5 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/ads.txt", "destination": "/ads.txt" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/ads.txt", "dest": "/ads.txt" },
+    { "handle": "rewrite", "src": "/(.*)", "dest": "/index.html" }
   ]
 }
